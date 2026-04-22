@@ -5,6 +5,8 @@ from enum import StrEnum
 
 class SourceEnum(StrEnum):
     HABR = 'habr'
+    DEVTO = 'devto'
+    HACKERNEWS = 'hackernews'
 
 
 class ArticleRequestSchema(BaseModel):

@@ -2,13 +2,17 @@ import logging
 from schemas import ArticleSchema, ArticleRequestSchema, SourceEnum
 from .parser_abc import ParserABC
 from .habr_parser import HabrParser
+from .devto_parser import DevtoParser
+from .hackernews_parser import HackernewsParser
 
 logger = logging.getLogger(__name__)
 
 
 class ParserDispatcher:
     _parser_map: dict[SourceEnum, ParserABC] = {
-        SourceEnum.HABR: HabrParser()
+        SourceEnum.HABR: HabrParser(),
+        SourceEnum.DEVTO: DevtoParser(),
+        SourceEnum.HACKERNEWS: HackernewsParser(),
     }
 
     @classmethod
